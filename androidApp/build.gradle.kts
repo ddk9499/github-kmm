@@ -10,7 +10,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.compose.ui:ui:$composeVersion")
     // Tooling support (Previews, etc.)
-    implementation("androidx.ui:ui-tooling:$composeVersion")
+    implementation("androidx.compose.ui:ui-tooling:1.0.0-alpha08")
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation("androidx.compose.foundation:foundation:$composeVersion")
     // Material Design
