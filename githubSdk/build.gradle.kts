@@ -1,9 +1,13 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+import com.codingfeline.buildkonfig.gradle.TargetConfigDsl
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
     id("com.android.library")
+    id("com.codingfeline.buildkonfig")
 }
 
 kotlin {
@@ -37,6 +41,25 @@ android {
         minSdkVersion(24)
         targetSdkVersion(30)
     }
+}
+buildkonfig {
+    packageName = "uz.dkamaloff.githubkmm.githubSdk"
+
+    val props = gradleLocalProperties(rootDir)
+    defaultConfigs {
+        buildConfigField(STRING, "clientId", props.getProperty("CLIENT_ID"))
+        buildConfigField(STRING, "redirectUri", props.getProperty("REDIRECT_URI"))
+        buildConfigField(STRING, "scope", props.getProperty("SCOPE"))
+        buildConfigField(STRING, "state", props.getProperty("STATE_COMMON"))
+    }
+    targetConfigs(closureOf<NamedDomainObjectContainer<TargetConfigDsl>> {
+        create("android") {
+            buildConfigField(STRING, "state", props.getProperty("STATE_ANDROID"))
+        }
+        create("ios") {
+            buildConfigField(STRING, "state", props.getProperty("STATE_IOS"))
+        }
+    })
 }
 
 val packForXcode by tasks.creating(Sync::class) {
