@@ -1,10 +1,15 @@
 package uz.dkamaloff.githubkmm.androidApp
 
+import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import uz.dkamaloff.githubkmm.githubSdk.Greeting
+import uz.dkamaloff.githubkmm.githubSdk.SDK
 
-fun greet(): String {
-    return Greeting().greeting()
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val sdk = SDK()
+        Log.d("TAG", "onCreate: ${sdk.oAuthParams}")
+    }
 }
-
-class MainActivity : AppCompatActivity()
