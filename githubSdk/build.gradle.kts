@@ -56,7 +56,10 @@ buildkonfig {
         create("android") {
             buildConfigField(STRING, "state", props.getProperty("STATE_ANDROID"))
         }
-        create("ios") {
+        create("iosArm64") {
+            buildConfigField(STRING, "state", props.getProperty("STATE_IOS"))
+        }
+        create("iosX64") {
             buildConfigField(STRING, "state", props.getProperty("STATE_IOS"))
         }
     })
