@@ -48,6 +48,7 @@ buildkonfig {
     val props = gradleLocalProperties(rootDir)
     defaultConfigs {
         buildConfigField(STRING, "clientId", props.getProperty("CLIENT_ID"))
+        buildConfigField(STRING, "clientSecret", props.getProperty("CLIENT_SECRET"))
         buildConfigField(STRING, "redirectUri", props.getProperty("REDIRECT_URI"))
         buildConfigField(STRING, "scope", props.getProperty("SCOPE"))
         buildConfigField(STRING, "state", props.getProperty("STATE_COMMON"))
