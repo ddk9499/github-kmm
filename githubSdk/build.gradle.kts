@@ -20,14 +20,34 @@ kotlin {
         }
     }
     sourceSets {
+        val ktorVersion = "1.4.3"
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2-native-mt")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
+
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+                implementation("io.ktor:ktor-client-auth:$ktorVersion")
+                implementation("io.ktor:ktor-client-logging:$ktorVersion")
+
+                // Logging
+                implementation("com.github.aakira:napier:1.5.0-alpha1")
             }
         }
-        val androidMain by getting
-        val iosMain by getting
+        val androidMain by getting {
+            dependencies {
+                //Network
+                implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+            }
+        }
+        val iosMain by getting {
+            dependencies {
+                //Network
+                implementation("io.ktor:ktor-client-ios:$ktorVersion")
+            }
+        }
+
         val commonTest by getting
         val androidTest by getting
         val iosTest by getting
