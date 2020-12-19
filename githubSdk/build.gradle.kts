@@ -33,6 +33,8 @@ kotlin {
 
                 // Logging
                 implementation("com.github.aakira:napier:1.5.0-alpha1")
+
+                implementation("com.russhwolf:multiplatform-settings:0.6.3")
             }
         }
         val androidMain by getting {

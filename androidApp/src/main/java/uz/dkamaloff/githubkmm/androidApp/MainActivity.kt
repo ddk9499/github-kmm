@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val sdk = GithubSDK.create()
+        val sdk = GithubSDK.create(application.applicationContext)
         Log.d("TAG", "onCreate: ${sdk.oAuthParams}")
     }
 }

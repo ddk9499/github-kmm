@@ -2,6 +2,7 @@ package uz.dkamaloff.githubkmm.githubSdk
 
 import com.github.aakira.napier.DebugAntilog
 import com.github.aakira.napier.Napier
+import com.russhwolf.settings.AppleSettings
 import io.ktor.client.engine.ios.*
 import uz.dkamaloff.githubkmm.githubSdk.entities.OAuthParams
 import uz.dkamaloff.githubkmm.githubSdk.util.HttpClientFactory
@@ -16,4 +17,5 @@ fun GithubSDK.Companion.create(isDebug: Boolean): GithubSDK = GithubSDK(
     ),
     isDebug = isDebug,
     httpClientFactory = HttpClientFactory { _, _ -> Ios.create() },
+    settings = AppleSettings.Factory().create("github-kmm")
 ).also { if (isDebug) Napier.base(DebugAntilog()) }
