@@ -14,9 +14,9 @@ class SDK {
     static let shared = SDK()
     
     #if DEBUG
-        let isDebug = true
+        private let isDebug = true
     #else
-        let isDebug = false
+        private let isDebug = false
     #endif
     
     private let sdk: GithubSDK
