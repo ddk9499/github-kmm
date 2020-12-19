@@ -23,4 +23,9 @@ class GithubSDK internal constructor(
 
     fun getLoginInteractor() = LoginInteractor(loginService, oAuthParams)
 
+    /**
+     * We need this to create instance of [GithubSDK] via extension functions
+     * from platform specific modules.
+     */
+    companion object
 }

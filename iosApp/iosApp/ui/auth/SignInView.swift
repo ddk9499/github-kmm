@@ -8,13 +8,6 @@
 
 import SwiftUI
 import BetterSafariView
-
-private let REDIRECT_URI = "redirect_uri"
-private let CLIENT_ID = "client_id"
-private let SCOPE = "user,repo,gist,notifications,read:org"
-private let STATE = "state"
-private let CALLBACK_URL_SCHEME = "callback_url_scheme"
-
 struct SignInView : View {
     
     @State private var startingWebAuthenticationSession = false
@@ -31,11 +24,22 @@ struct SignInView : View {
         }
         .shadow(color: Color.blue, radius: 20, y: 5)
         .webAuthenticationSession(isPresented: $startingWebAuthenticationSession) {
-            WebAuthenticationSession(
-                url: URL(string: "https://github.com/login/oauth/authorize?client_id=\(CLIENT_ID)&redirect_uri=\(REDIRECT_URI)&scope=\(SCOPE)&state=\(STATE)")!,
-                callbackURLScheme: CALLBACK_URL_SCHEME
+            let oAuthParams = SDK.shared.oAuthParams
+            let url = "https://github.com/login/oauth/authorize?client_id=\(oAuthParams.clientId)&redirect_uri=\(oAuthParams.redirectUri)&scope=\(oAuthParams.scope)&state=\(oAuthParams.scope)"
+            return WebAuthenticationSession(
+                url: URL(string: url)!,
+                callbackURLScheme: String(oAuthParams.redirectUri.substring(to: oAuthParams.redirectUri.firstIndex(of: ":")!))
             ) { (callbackURL: URL?, error: Error?) in
-                print(callbackURL as Any, error as Any)
+                if let url = callbackURL {
+                    SDK.shared.loginInteractor.login(redirectedUri: url.absoluteString) { response, error in
+                        if let resp = response {
+                            print("ios response: \(resp)")
+                        }
+                        if let err = error {
+                            print(err)
+                        }
+                    }
+                }
             }
             .prefersEphemeralWebBrowserSession(false)
         }

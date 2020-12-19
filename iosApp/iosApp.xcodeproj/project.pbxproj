@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1EAA14672584950300F71028 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAA14662584950300F71028 /* SignInView.swift */; };
 		1EAA147025849ACE00F71028 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 1EAA146F25849ACE00F71028 /* BetterSafariView */; };
+		1EC112F6258DB221007CBE9E /* SDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC112F5258DB221007CBE9E /* SDK.swift */; };
 		7555FF7F242A565900829871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF7E242A565900829871 /* AppDelegate.swift */; };
 		7555FF81242A565900829871 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF80242A565900829871 /* SceneDelegate.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		1EAA14662584950300F71028 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		1EC112F5258DB221007CBE9E /* SDK.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = SDK.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7E242A565900829871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7555FF80242A565900829871 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E12D4EA258AA7C400AE0663 /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				1EC112F5258DB221007CBE9E /* SDK.swift */,
+			);
+			path = sdk;
+			sourceTree = "<group>";
+		};
 		1EAA1464258494C800F71028 /* ui */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +148,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E12D4EA258AA7C400AE0663 /* sdk */,
 				1EAA1464258494C800F71028 /* ui */,
 				7555FF7E242A565900829871 /* AppDelegate.swift */,
 				7555FF80242A565900829871 /* SceneDelegate.swift */,
@@ -343,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC112F6258DB221007CBE9E /* SDK.swift in Sources */,
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
 				1EAA14672584950300F71028 /* SignInView.swift in Sources */,

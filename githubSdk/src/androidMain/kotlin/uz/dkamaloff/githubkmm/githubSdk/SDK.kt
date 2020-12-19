@@ -5,7 +5,7 @@ import uz.dkamaloff.githubkmm.githubSdk.entities.OAuthParams
 import uz.dkamaloff.githubkmm.githubSdk.util.HttpClientFactory
 import java.util.concurrent.TimeUnit
 
-actual fun SDK(): GithubSDK = GithubSDK(
+fun GithubSDK.Companion.create() = GithubSDK(
     oAuthParams = OAuthParams(
         clientId = BuildKonfig.clientId,
         clientSecret = BuildKonfig.clientSecret,
